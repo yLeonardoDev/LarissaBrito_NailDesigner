@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog da Designer</title>
+</head>
+<body>
+    <a href="index.html">Pagina Principal</a>
+    <a href="Curso.html">Curso de Nail Designer</a>
+
+<style>
+    .container {
+      display: flex;            /* Coloca itens lado a lado */
+      align-items: center;      /* Centraliza verticalmente */
+      max-width: 800px;
+      margin: auto;
+      gap: 20px;                /* Espaço entre imagem e texto */
+    }
+
+    .texto {
+      flex: 1;                  /* Faz o texto ocupar o espaço restante */
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .container img {
+      width: 300px;             /* Tamanho da imagem */
+      border-radius: 10px;      /* Cantos arredondados */
+    }
+
+    /* Responsivo para celular */
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column; /* Empilha imagem e texto no celular */
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="texto">
+      <h2>Cuidados com as Unhas</h2>
+      <p>
+        Manter as unhas bonitas e saudáveis vai além da estética, é também uma questão de higiene e saúde. Para isso, alguns cuidados básicos fazem toda a diferença no dia a dia.</p>
+<p>Higienização: lave sempre as mãos e unhas corretamente, evitando o acúmulo de sujeira que pode causar infecções.</p>
+<p>Hidratação: aplique creme ou óleo nas cutículas e unhas para evitar o ressecamento.</p>
+<p>Corte adequado: corte as unhas retas, sem arredondar demais os cantos, para prevenir encravamentos.</p>
+<p>Evite roer: além de prejudicar o formato, o hábito de roer unhas pode trazer bactérias para o organismo.</p>
+<p>Descanso do esmalte: dê pausas entre uma esmaltação e outra para que a unha possa “respirar” e recuperar sua saúde natural.</p>
+<p>Alimentação saudável: nutrientes como biotina, ferro e zinco contribuem para unhas fortes e resistentes.</p>
+<p>Cuidar das unhas é um gesto simples que reflete saúde, autoestima e bem-estar no dia a dia.</p>
+      </p>
+    </div>
+    <img src="img/1.jpeg" alt="Unhas bem cuidadas">
+  </div>  
+</body>
+</html>
