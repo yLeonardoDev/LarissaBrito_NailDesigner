@@ -1,206 +1,409 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Manicure e Nail Desginer </title>
-  <meta name="description" content="Portfólio profissional: projetos, habilidades e contato." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Larissa Brito | Nail Designer</title>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico"> <!-- Icone para WEB -->
+  <link rel="stylesheet" href="public/assets/css/global.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
+
 </head>
-<body>
-  <!-- Navegação -->
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Voltar ao topo">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Larissa Brito</span>
-      </a>
-      <nav>
-        <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
-        <div class="menu" role="menu">
-          <a href="#sobre" role="menuitem">Sobre nós</a>
-          <a href="#projetos" role="menuitem">Meus trabalhos</a>
-          <a href="#localização" role="menuitem">Localização</a>
-          <a href="#Agendamento" role="menuitem">Agendamento</a>
-          <a href="Blog.html" role="menuitem">Blog</a>
-          <a href="Curso.html" role="menuitem">Meu curso</a>
+
+<body class="bg-primary-50" style="font-family: 'Patrick Hand', cursive;">
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-pink-400 to-pink-600 text-white">
+    <div class="container mx-auto px-4 py-6">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+          <i data-feather="star" class="w-8 h-8 text-pink-200"></i>
+          <h1 class="text-2xl font-bold dancing-font">Larissa Brito | Nail Designer</h1>
         </div>
-      </nav>
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.html" class="hover:text-pink-200 font-medium">Home</a>
+          <a href="about.html" class="hover:text-pink-200 font-medium">Sobre</a>
+          <a href="gallery.html" class="hover:text-pink-200 font-medium">Galeria</a>
+          <a href="curso.html" class="hover:text-pink-200 font-medium">Curso</a>
+          <a href="login.html" class="hover:text-pink-200 font-medium">Login/Cadastro</a>
+        </nav>
+
+        <button class="md:hidden">
+          <i data-feather="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-    <!-- Sobre -->
-    <section id="sobre">
-      <div class="cards">
-        <article class="card" aria-labelledby="sobre-title">
-          <h2 id="sobre-title">Sobre nós</h2>
-          <p>Nosso grupo é integrado pela Giu, Gaabs, Luana, Guilherme, Renan e Anderson. </p>
-          <p>Somos um grupo do curso de ADS (Análise e desenvolvimento de sistemas), escolhemos o tema "Designer de unhas" por uma das nossas integrantes ter uma amiga que ja trabalha na área e fez com que nós tivessemos interesse pelo assunto. </p>
-          <div class="cards" style="margin-top:8px; gap:12px;">
-            
-          </div>
-        </article>
-      </div>
-    </section>
+  <!-- Hero Section -->
 
-     <main id="top" class="container hero">
-    <div class="hero-grid">
-      <div>
-        <h1 class="title">Nail Designer / Larissa Brito</h1>
-        <p class="subtitle">Me chamo Larissa Brito, comecei minha jornada como designer de unhas aos 17 anos e hoje, aos 23, já carrego seis anos de experiência e a conquista do meu próprio salão. Para mim, cuidar das unhas vai muito além de embelezar mãos: é uma forma de elevar autoestima, confiança e bem-estar. </p>
-        <p>Comecei em casa, com poucos recursos, mas muita dedicação e o sonho de crescer. O amor pelas unhas me levou a abrir meu próprio salão e, mais tarde, a compartilhar meu conhecimento, ajudando outras profissionais a seguirem o mesmo caminho.</p>
-        <p>Meu objetivo é expandir cada vez mais a presença da minha marca, tanto no atendimento presencial quanto no digital. Quero abrir uma nova unidade, aumentar minha equipe com profissionais especializados e levar meus cursos para outras cidades e também online. Meu sonho é transformar a Larissa Brito Nails Designer em uma grande referência nacional em unhas e formação profissional.</p>
-<img src="img/WhatsApp Image 2025-08-25 at 17.16.24.jpeg" widht="200" height="300">
-        <div class="cta">
+  <section class="relative overflow-hidden h-screen min-h-[600px]">
+
+    <div class="absolute inset-0 w-full h-full">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover">
+        <source src="public/assets/video/Salao_02.mp4" type="video/mp4">
+
+      </video>
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    </div>
+
+    <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+      <div class="max-w-2xl">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 dancing-font drop-shadow-lg">
+          Unhas Mágicas para Princesas !
+        </h2>
+        <p class="text-xl text-white mb-8 drop-shadow-md" style="font-family: 'Patrick Hand', cursive;">
+          Alongamentos de Unhas, Manicure, Pedicure, Esmaltação em Gel !
+        </p>
+
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <a href="#"
+            class="bg-white border-2 border-white text-pink-600 font-bold py-3 px-8 rounded-full hover:bg-pink-500 hover:text-white hover:border-pink-500 transition duration-300 text-center backdrop-blur-sm bg-opacity-90"
+            style="font-family: 'Patrick Hand', cursive;">
+            Agendar Horário
+          </a>
+          <a href="#"
+            class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-pink-600 transition duration-300 text-center backdrop-blur-sm"
+            style="font-family: 'Patrick Hand', cursive;">
+            Ver Serviços
+          </a>
         </div>
       </div>
-      <div class="photo" aria-label="Foto de perfil"></div>
     </div>
-    <!-- Projetos -->
-    <section id="projetos">
-   <section class="galeria">
-  <h2 style="text-align: center;">Meus trabalhos</h2>
-  <div class="projects" style="margin-top:20px;"></div>
-  <div class="fotos">
-    <div style="text-align: center;">
-    <img src="img/1.jpeg" alt="Foto centralizada">
-    <img src="img/2.jpeg" alt="Foto centralizada">
-    <img src="img/3.jpeg" alt="Foto centralizada">
-    <img src="img/4.jpeg" alt="Foto centralizada">
-    <img src="img/5.jpeg" alt="Foto centralizada">
-    <img src="img/6.jpeg" alt="Foto centralizada">
-    <img src="img/7.jpeg" alt="Foto centralizada">
-    <img src="img/8.jpeg" alt="Foto centralizada">
-    <img src="img/9.jpeg" alt="Foto centralizada">
-    <img src="img/10.jpeg" alt="Foto centralizada">
-    <img src="img/11.jpeg" alt="Foto centralizada">
-  
-  </div>
-</section>
-
-<style>
-.galeria img {
-  transition: transform .3s ease, filter .3s ease;
-  height: 250px;
-}
-.galeria img:hover {
-  transform: scale(1.05);
-  filter: brightness(0.9);
-}
-    body {
-      font-family: Arial, sans-serif;
-      text-align: left;
-      margin: 20px;
-    }
-
-    iframe {
-      width: 100%;
-      max-width: 600px;
-      height: 400px;
-      border: 0;
-      border-radius: 10px;
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
-    }
-  </style>
-</head>
-<body>
-  <section id="localização">
-  <h2>📍 Nossa Localização</h2>
-  <p>R. Gêmeos, 192 - Cidade Satélite Santa Bárbara</p>
-
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.573081498038!2d-46.6228!3d-23.5854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5cbeae4b45f3%3A0xa0b11a6a2b94d7bb!2sR.%20Gêmeos%2C%20192%20-%20Cidade%20Satélite%20Santa%20Bárbara!5e0!3m2!1spt-BR!2sbr!4v1692823022999!5m2!1spt-BR!2sbr" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
   </section>
-  </iframe>
-  
-<h2>Minhas especialidades</h2>
-</div>
-<section id="Agendamento"></section>
-<div class="container">
-    <ul>
-      <li>Banho em Gel</li>
-      <li>Alongamento em Gel</li>
-      <li>Nail Arts</li>
-      <li>Decorações 3D</li>
-    </ul>
-    <a href="https://api.whatsapp.com/message/27OJN6X5YKKIL1?autoload=1&app_absent=0" target="blank">Marque aqui seu horário</a>
 
-    <div class="imagens">
-      <img height= 250 widht= 250 src="img/a.jpeg" alt="Imagem 1">
-      <img height= 250 widht= 250 src="img/b.jpeg" alt="Imagem 2">
-      <img height= 250 widht= 250 src="img/c.jpeg" alt="Imagem 3">
+  <!-- Party Section -->
+
+  <section class="py-16 bg-pink-100">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-pink-600 mb-4 dancing-font">💖 Larissa Brito 💖</h2>
+        <p style="font-family: 'Patrick Hand', cursive;">Venha fazer meu curso e transforme sua paixão por unhas em uma
+          arte você vai aprender todos os segredos para
+          criar designs
+          incríveis e dominar as técnicas de cuidado que vão elevar o nível do seu trabalho. 💅✨</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <img src="public/assets/images/EU_About.jpg" alt="Festa de Unhas" class="rounded-xl shadow-lg w-full">
+        </div>
+        <div>
+          <h3 class="text-2xl font-bold text-pink-700 mb-4" style="font-family: 'Patrick Hand', cursive;">O que inclui:
+          </h3>
+          <ul class="space-y-3 text-pink-600">
+            <li class="flex items-start">
+              <i data-feather="check-circle" class="w-5 h-5 mt-1 mr-2 text-pink-500"></i>
+              <span style="font-family: 'Patrick Hand', cursive;">Técnicas de esmaltação tradicional e em gel</span>
+            </li>
+            <li class="flex items-start">
+              <i data-feather="check-circle" class="w-5 h-5 mt-1 mr-2 text-pink-500"></i>
+              <span style="font-family: 'Patrick Hand', cursive;">Decoração artística e design personalizado</span>
+            </li>
+            <li class="flex items-start">
+              <i data-feather="check-circle" class="w-5 h-5 mt-1 mr-2 text-pink-500"></i>
+              <span style="font-family: 'Patrick Hand', cursive;">Anatomia da Unha: Entende a estrutura da unha natural
+                para não danificá-la.</span>
+            </li>
+            <li class="flex items-start">
+              <i data-feather="check-circle" class="w-5 h-5 mt-1 mr-2 text-pink-500"></i>
+              <span style="font-family: 'Patrick Hand', cursive;">Esmaltação Aborda a aplicação de esmalte em gel e, às
+                vezes, decorações básicas.</span>
+            </li>
+            <li class="flex items-start">
+              <i data-feather="check-circle" class="w-5 h-5 mt-1 mr-2 text-pink-500"></i>
+              <span style="font-family: 'Patrick Hand', cursive;">Fotos com cenário temático</span>
+            </li>
+
+            <li class="flex items-start">
+              <i data-feather="check-circle" class="w-5 h-5 mt-1 mr-2 text-pink-500"></i>
+              <span style="font-family: 'Patrick Hand', cursive;"><b>Venha e não perca essa oportunidade de aprender
+                  comigo !!!</b></span>
+            </li>
+          </ul>
+          <button
+            class="mt-6 bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full transition duration-300"
+            style="font-family: 'Patrick Hand', cursive;">Quero
+            Fazer o Curso !</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-pink-600 mb-4 dancing-font">Serviços Encantados</h2>
+        <p class="text-pink-400 max-w-2xl mx-auto" style="font-family: 'Patrick Hand', cursive;">Manicure
+          especializadautilizando produtos hipoalergênicos e
+          designs mágicos</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Service Card 1 -->
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-500 card-hover">
+          <div class="h-48 bg-cover bg-center bg-no-repeat"
+            style="background-image: url('public/assets/images/Service_6.jpg'); background-size: cover; background-position: center;">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-bold text-pink-700" style="font-family: 'Patrick Hand', cursive;">Banho em Gel
+              </h3>
+              <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-medium"
+                style="font-family: 'Patrick Hand', cursive;"> A Partir de R$
+                35,00</span>
+            </div>
+            <p class="text-pink-600 mb-4" style="font-family: 'Patrick Hand', cursive;"> Lorem ipsum dolor sit, amet
+              consectetur adipisicing elit. Expedita ea
+              aspernatur nihil, quia repudiandae odit, culpa, temporibus atque dolorum minus at officiis consectetur
+              tenetur architecto cupiditate debitis nam nisi voluptate</p>
+            <button
+              class="w-full bg-white border-2 border-write text-black font-bold py-2 rounded-lg transition duration-300 hover:bg-pink-500 hover:text-white hover:border-pink-500"
+              style="font-family: 'Patrick Hand', cursive;">
+              Agendar
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 2 -->
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-500 card-hover">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('public/assets/images/Service_7.jpg');">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-bold text-pink-700" style="font-family: 'Patrick Hand', cursive;">Pedicure </h3>
+              <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-medium"
+                style="font-family: 'Patrick Hand', cursive;">A Partir de R$
+                40,00</span>
+            </div>
+            <p class="text-pink-600 mb-4" style="font-family: 'Patrick Hand', cursive;">Lorem ipsum dolor sit amet
+              consectetur adipisicing elit. Labore amet inventore
+              quia iusto doloremque magni, dolore maxime quam deserunt. Itaque placeat doloremque deserunt error! Natus
+              aspernatur quisquam iure magnam aperiam.</p>
+            <button
+              class="w-full bg-white border-2 border-write text-black font-bold py-2 rounded-lg transition duration-300 hover:bg-pink-500 hover:text-white hover:border-pink-500"
+              style="font-family: 'Patrick Hand', cursive;">
+              Agendar
+            </button>
+          </div>
+        </div>
+
+        <!-- Service Card 3 -->
+
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transition duration-500 card-hover">
+          <div class="h-48 bg-cover bg-center" style="background-image: url('public/assets/images/Service_12.jpg');">
+          </div>
+          <div class="p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-bold text-pink-700" style="font-family: 'Patrick Hand', cursive;"> Unhas com
+                Efeitos 3d</h3>
+              <span class="bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-medium"
+                style="font-family: 'Patrick Hand', cursive;"> A Partir de R$
+                50,00</span>
+            </div>
+            <p class="text-pink-600 mb-4" style="font-family: 'Patrick Hand', cursive;">Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Ex magni dolorum,
+              deserunt aliquid aspernatur fugiat, quos aliquam illo quo debitis voluptatibus ipsam mollitia excepturi,
+              dignissimos repudiandae itaque earum voluptatum? Dicta!
+            </p>
+            <button
+              class="w-full bg-white border-2 border-write text-black font-bold py-2 rounded-lg transition duration-300 hover:bg-pink-500 hover:text-white hover:border-pink-500"
+              style="font-family: 'Patrick Hand', cursive;">
+              Agendar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+
+  <section class="py-16 bg-pink-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-pink-600 mb-4 dancing-font">Cada Unha, Uma Obra-Prima! </h2>
+        <p class="text-pink-400 max-w-2xl mx-auto" style="font-family: 'Patrick Hand', cursive;">Veja alguns dos meus
+          trabalhos
+          recentes</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_1.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_2.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_3.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_4.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_5.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_6.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_7.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_8.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_9.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_10.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_11.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+        <div class="overflow-hidden rounded-lg">
+          <img src="public/assets/images/Service_12.jpg" alt="Nail Design"
+            class="w-full h-48 object-cover hover:scale-105 transition duration-500">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Location Section -->
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-pink-600 mb-4 dancing-font">Onde Estamos</h2>
+      <p class="text-pink-500 text-xl max-w-2xl mx-auto dancing-font">Venha nos visitar em nosso espaço encantador</p>
     </div>
 
-    
-    <!-- Avaliação -->
-    <section id="avaliação">
-      <div class="container">
-    <h2>Avaliação</h2>
-    <form id="form">
-      <label for="nome">Seu nome:</label>
-      <input type="text" id="nome" placeholder="Digite seu nome">
+    <!-- Location Map (Maps) -->
+    <div class="flex flex-col lg:flex-row gap-8">
+      <div class="lg:w-1/2">
+        <div class="bg-gray-200 rounded-xl overflow-hidden h-96">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.573081498038!2d-46.6228!3d-23.5854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5cbeae4b45f3%3A0xa0b11a6a2b94d7bb!2sR.%20Gêmeos%2C%20192%20-%20Cidade%20Satélite%20Santa%20Bárbara!5e0!3m2!1spt-BR!2sbr!4v1692823022999!5m2!1spt-BR!2sbr"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
 
-      <label for="nota">Nota:</label>
-      <select id="nota" required>
-        <option value="">Selecione...</option>
-        <option>⭐</option>
-        <option>⭐⭐</option>
-        <option>⭐⭐⭐</option>
-        <option>⭐⭐⭐⭐</option>
-        <option>⭐⭐⭐⭐⭐</option>
-      </select>
+      <!-- Contact Information -->
 
-      <label for="comentario">Comentário:</label>
-      <textarea id="comentario" placeholder="Escreva aqui..."></textarea>
+      <div class="lg:w-1/2">
+        <div class="bg-pink-50 rounded-xl p-8 h-full">
+          <h3 class="text-2xl font-bold text-gray-800 mb-4" style="font-family: 'Patrick Hand', cursive;">Informações de
+            Contato</h3>
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <i data-feather="map-pin" class="w-5 h-5 mt-1 mr-3 text-pink-500"></i>
+              <p style="font-family: 'Patrick Hand', cursive;">R. dos Brinquedos, 100 - Parque das Princesas, São Paulo
+                - SP</p>
+            </div>
+            <div class="flex items-start">
+              <i data-feather="phone" class="w-5 h-5 mt-1 mr-3 text-secondary-500"></i>
+              <p style="font-family: 'Patrick Hand', cursive;"> WhatsApp: (11) 96031-2904) </p>
+            </div>
+            <div class="flex items-start">
+              <i data-feather="mail" class="w-5 h-5 mt-1 mr-3 text-secondary-500"></i>
+              <p style="font-family: 'Patrick Hand', cursive;">Instagram: @larissabrit_nails</p>
+            </div>
+            <div class="flex items-start">
+              <i data-feather="clock" class="w-5 h-5 mt-1 mr-3 text-secondary-500"></i>
+              <p style="font-family: 'Patrick Hand', cursive;">Atendimento: Segunda a Sexta: 09:00 - 18:00</p>
+            </div>
+          </div>
 
-      <button type="submit">Enviar</button>
-    </form>
-
-    <div class="resultado" id="resultado"></div>
+        </div>
+      </div>
+    </div>
   </div>
+  </section>
 
-  <footer>
-    <div class="container">
-      <p>© <span id="year"></span> Larissa Brito. Todos os direitos reservados.</p>
-       <div class="info">
-      📞 <a href="https://api.whatsapp.com/message/27OJN6X5YKKIL1?autoload=1&app_absent=0" target="blank">(11) 96031-2904</a>
-    </div>
-    <div class="info">
-      📸 <a href="https://www.instagram.com/larissabrit_nails/?igsh=MWhhb253MnNnYWY3YQ%3D%3D" target="_blank">@larissabrit_nails</a>
-    </div>
-    <div class="info">
-      ⏰ Atendimento: Seg - Sex: 09h às 18h
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <i data-feather="star" class="w-6 h-6 text-pink-400"></i>
+            <h3 class="text-xl font-bold text-pink-300 dancing-font">Larissa Brito | Nail Designer</h3>
+          </div>
+
+          <p class="text-pink-200">Cada unha, uma história de confiança e beleza!</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a>
+            </li>
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">Sobre</a></li>
+            <li><a href="gallery.html" class="text-gray-400 hover:text-white transition duration-300">Galeria</a></li>
+            <li><a href="curso.html" class="text-gray-400 hover:text-white transition duration-300">Curso</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold mb-4">Contato</h4>
+          <ul class="space-y-2">
+
+            <li class="flex items-start">
+              <i data-feather="phone" class="w-4 h-4 mt-1 mr-2 text-pink-400"></i>
+              <a href="https://wa.me/5511960312904" target="_blank"
+                class="text-gray-400 hover:text-white transition duration-300">
+                WhatsApp (11) 96031-2904
+              </a>
+            </li>
+
+            <li class="flex items-start">
+              <i data-feather="instagram" class="w-4 h-4 mt-1 mr-2 text-pink-400"></i>
+              <a href="https://instagram.com/larissabrit_nails" target="_blank"
+                class="text-gray-400 hover:text-white transition duration-300">
+                @larissabrit_nails
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold mb-4">Endereço</h4>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-2 text-pink-400"></i>
+              <span class="text-gray-400">R. dos Brinquedos, 100 - Parque das Princesas, São Paulo -
+                SP</span>
+            </li>
+        </div>
+
+
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 Larissa Brito | Nail Designer. Todos os direitos reservados.</p>
+      </div>
     </div>
   </footer>
 
+
   <script>
-    // Ano atual no rodapé
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Menu mobile
-    const btn = document.querySelector('.menu-btn');
-    const menu = document.querySelector('.menu');
-    btn?.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(open));
-    });
-
-    // Rolagem suave em âncoras
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href');
-        if(!id || id === '#') return;
-        const el = document.querySelector(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
-        menu.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
+    feather.replace();
   </script>
 </body>
+
 </html>
