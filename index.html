@@ -15,28 +15,32 @@
 
 <body class="bg-primary-50" style="font-family: 'Patrick Hand', cursive;">
   <!-- Header -->
-  <header class="bg-gradient-to-r from-pink-400 to-pink-600 text-white">
-    <div class="container mx-auto px-4 py-6">
-      <div class="flex justify-between items-center">
-        <div class="flex items-center space-x-2">
-          <i data-feather="star" class="w-8 h-8 text-pink-200"></i>
-          <h1 class="text-2xl font-bold dancing-font">Larissa Brito | Nail Designer</h1>
-        </div>
-        <nav class="hidden md:flex space-x-8">
-          <a href="index.html" class="hover:text-pink-200 font-medium">Home</a>
-          <a href="about.html" class="hover:text-pink-200 font-medium">Sobre</a>
-          <a href="gallery.html" class="hover:text-pink-200 font-medium">Galeria</a>
-          <a href="curso.html" class="hover:text-pink-200 font-medium">Curso</a>
-          <a href="login.html" class="hover:text-pink-200 font-medium">Login/Cadastro</a>
-        </nav>
-
-        <button class="md:hidden">
-          <i data-feather="menu" class="w-6 h-6"></i>
-        </button>
+<!-- Header -->
+<header class="bg-gradient-to-r from-pink-400 to-pink-600 text-white">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <i data-feather="star" class="w-8 h-8 text-pink-200"></i>
+        <h1 class="text-2xl font-bold dancing-font">Larissa Brito | Nail Designer</h1>
       </div>
-    </div>
-  </header>
 
+      <!-- Menu Único - Adaptável para Desktop e Mobile -->
+      <nav class="fixed top-0 right-0 h-full w-64 bg-gradient-to-b from-pink-400 to-pink-600 z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:static md:transform-none md:flex md:space-x-10 md:bg-none md:w-auto md:h-auto">
+        <div class="flex flex-col space-y-8 p-8 md:flex-row md:space-y-0 md:p-0 md:space-x-10">
+          <a href="index.html" class="text-white hover:text-pink-200 font-medium text-lg py-3 border-b border-pink-300 md:border-none transition duration-300">Home</a>
+          <a href="about.html" class="text-white hover:text-pink-200 font-medium text-lg py-3 border-b border-pink-300 md:border-none transition duration-300">Sobre</a>
+          <a href="gallery.html" class="text-white hover:text-pink-200 font-medium text-lg py-3 border-b border-pink-300 md:border-none transition duration-300">Galeria</a>
+          <a href="curso.html" class="text-white hover:text-pink-200 font-medium text-lg py-3 border-b border-pink-300 md:border-none transition duration-300">Curso</a>
+          <a href="login.html" class="text-white hover:text-pink-200 font-medium text-lg py-3 md:border-none transition duration-300">Login/Cadastro</a>
+        </div>
+      </nav>
+
+      <button class="md:hidden bg-pink-500 hover:bg-pink-600 p-2 rounded-lg transition duration-300 z-50">
+        <i data-feather="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </div>
+</header>
   <!-- Hero Section -->
 
   <section class="relative overflow-hidden h-screen min-h-[600px]">
@@ -392,7 +396,6 @@
             </li>
         </div>
 
-
       </div>
       <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
         <p>&copy; 2025 Larissa Brito | Nail Designer. Todos os direitos reservados.</p>
@@ -400,7 +403,7 @@
     </div>
   </footer>
 
-
+  <script src="public/assets/js/mobile.js"></script>
   <script>
     feather.replace();
   </script>
