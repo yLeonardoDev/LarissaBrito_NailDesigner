@@ -197,3 +197,251 @@ body {
 .loading {
     animation: pulse 2s infinite;
 }
+
+/* LOGIN / CADASTRO */
+
+/* Estilos para a página de login/cadastro */
+.login-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.form-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1);
+    overflow: hidden;
+}
+
+.form-tabs {
+    display: flex;
+    background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+.form-tab {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    background: none;
+    font-size: 1rem;
+}
+
+.form-tab.active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.form-tab:not(.active):hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.forms-container {
+    position: relative;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease-in-out;
+    visibility: hidden;
+}
+
+.form.active {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem 3rem 1rem 1rem;
+    border: 2px solid #fbcfe8;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ec4899;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+}
+
+.form-label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: #9d174d;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: white;
+    padding: 0 0.5rem;
+}
+
+.form-input:focus+.form-label,
+.form-input:not(:placeholder-shown)+.form-label {
+    top: -0.5rem;
+    font-size: 0.875rem;
+    color: #ec4899;
+}
+
+.input-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ec4899;
+}
+
+.password-toggle {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #db2777;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #ec4899, #db2777);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #9d174d;
+}
+
+.switch-form {
+    color: #ec4899;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.switch-form:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.error-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 0.25rem;
+    accent-color: #ec4899;
+}
+
+.checkbox-label {
+    color: #9d174d;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.forgot-password {
+    color: #ec4899;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Animações */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.animate-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes success {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate-success {
+    animation: success 0.5s ease-in-out;
+}
