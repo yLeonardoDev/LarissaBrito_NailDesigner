@@ -1,18 +1,199 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Patrick+Hand&display=swap');
 
-body {
-    font-family: 'Patrick Hand', cursive;
+/* ===== VARIÁVEIS E CONFIGURAÇÕES GLOBAIS ===== */
+:root {
+    --primary-pink: #ec4899;
+    --pink-gradient: linear-gradient(to right, #f472b6, #ec4899);
+    --pink-light: #fdf2f8;
+    --shadow-light: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --transition-standard: all 0.3s ease;
 }
 
+/* ===== RESET E CONFIGURAÇÕES BASE ===== */
+body {
+    font-family: 'Patrick Hand', cursive;
+    line-height: 1.6;
+}
+
+/* ===== TIPOGRAFIA ===== */
 .dancing-font {
     font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+}
+
+/* ===== COMPONENTES REUTILIZÁVEIS ===== */
+
+/* Cards Gerais */
+.card-hover {
+    transition: var(--transition-standard);
 }
 
 .card-hover:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: var(--shadow-hover);
 }
 
+/* Cards da Galeria */
+.gallery-card {
+    transition: var(--transition-standard);
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-light);
+}
+
+/* Botões de Filtro */
+.filter-btn {
+    transition: var(--transition-standard);
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-pink);
+    color: white;
+}
+
+/* Header */
 .header-bg {
-    background: linear-gradient(to right, #f472b6, #ec4899);
+    background: var(--pink-gradient);
+}
+
+/* ===== COMPONENTES ESPECÍFICOS ===== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 101;
+    transition: var(--transition-standard);
+}
+
+.close-modal:hover {
+    color: #f472b6;
+    transform: scale(1.1);
+}
+
+/* ===== ANIMAÇÕES ===== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* ===== ESTADOS E INTERAÇÕES ===== */
+
+/* Estados Hover */
+.filter-btn:hover:not(.active) {
+    background-color: #fbcfe8;
+    transform: translateY(-2px);
+}
+
+.gallery-card img {
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+@media (max-width: 768px) {
+    .modal-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .close-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .close-modal {
+        top: 5px;
+        right: 10px;
+        font-size: 24px;
+    }
+}
+
+/* ===== UTILITÁRIOS ===== */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.filter-btn:focus,
+.close-modal:focus {
+    outline: 2px solid var(--primary-pink);
+    outline-offset: 2px;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.loading {
+    animation: pulse 2s infinite;
 }
