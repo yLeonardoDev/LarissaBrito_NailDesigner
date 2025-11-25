@@ -9,25 +9,47 @@
     <link rel="stylesheet" href="public/assets/css/global.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
+
     <style>
-        #registerForm {
+        .login-section {
+            min-height: 70vh;
             display: flex;
-            flex-direction: column;
-            height: 100%;
+            align-items: center;
         }
 
-        #registerForm .form-group:last-of-type {
-            margin-bottom: 0.5rem;
+        .form-wrapper {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.1);
+            overflow: hidden;
         }
 
-        .submit-btn {
-            margin-top: 0.5rem !important;
-            margin-bottom: 0.5rem;
+        .form-tabs {
+            display: flex;
+            background: linear-gradient(135deg, #ec4899, #db2777);
         }
 
-        .form-footer {
-            margin-top: 0.5rem !important;
-            padding-top: 0.5rem;
+        .form-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            background: none;
+            font-size: 1rem;
+        }
+
+        .form-tab.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .form-tab:not(.active):hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .forms-container {
@@ -53,6 +75,160 @@
             box-sizing: border-box;
         }
 
+        .form.active {
+            opacity: 1;
+            transform: translateX(0);
+            visibility: visible;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1rem;
+            border: 2px solid #fbcfe8;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ec4899;
+            box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+        }
+
+        .form-label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            color: #9d174d;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            background: white;
+            padding: 0 0.5rem;
+        }
+
+        .form-input:focus+.form-label,
+        .form-input:not(:placeholder-shown)+.form-label {
+            top: -0.5rem;
+            font-size: 0.875rem;
+            color: #ec4899;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ec4899;
+        }
+
+        .password-toggle {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .password-toggle:hover {
+            color: #db2777;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ec4899, #db2777);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(236, 72, 153, 0.4);
+        }
+
+        .submit-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #9d174d;
+        }
+
+        .switch-form {
+            color: #ec4899;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .switch-form:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .error-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .forgot-password {
+            color: #ec4899;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        #registerForm {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        #registerForm .form-group:last-of-type {
+            margin-bottom: 0.5rem;
+        }
+
+        .form-button-section {
+            margin-top: auto;
+            flex-shrink: 0;
+        }
+
         .form>div:first-child {
             flex-shrink: 0;
         }
@@ -61,16 +237,35 @@
             flex-shrink: 0;
         }
 
-        .form-button-section {
-            margin-top: auto;
-            flex-shrink: 0;
+        .alert-message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .alert-success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        .alert-error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .form:not(.active) {
+            pointer-events: none;
         }
     </style>
-
 </head>
 
 <body class="bg-pink-50">
 
+    <!-- Header -->
     <header class="bg-gradient-to-r from-pink-400 to-pink-600 text-white">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
@@ -88,8 +283,6 @@
                             class="text-white hover:text-pink-200 font-medium text-lg py-3 border-b border-pink-300 md:border-none transition duration-300">Sobre</a>
                         <a href="gallery.html"
                             class="text-white hover:text-pink-200 font-medium text-lg py-3 border-b border-pink-300 md:border-none transition duration-300">Galeria</a>
-                        <a href="curso.html"
-                            class="text-white hover:text-pink-200 font-medium text-lg py-3 border-b border-pink-300 md:border-none transition duration-300">Curso</a>
                         <a href="login.html"
                             class="text-white hover:text-pink-200 font-medium text-lg py-3 md:border-none transition duration-300">Login/Cadastro</a>
                     </div>
@@ -110,9 +303,11 @@
         </div>
     </section>
 
+    <!-- sessão de login / cadastro -->
     <section class="login-section py-16">
         <div class="container mx-auto px-4">
             <div class="form-wrapper">
+
                 <div class="form-tabs">
                     <button class="form-tab active" data-tab="login">
                         <i data-feather="log-in" class="w-4 h-4 inline mr-2"></i>
@@ -126,20 +321,22 @@
 
                 <div class="forms-container">
 
-                    <form id="loginForm" class="form active">
+                    <form id="loginForm" class="form active" action="backend/php/login.php" method="POST">
                         <div class="text-center mb-6">
                             <h3 class="text-2xl font-bold text-pink-700 dancing-font">Bem-vinda de volta!</h3>
                             <p class="text-pink-600 mt-2">Entre na sua conta para continuar</p>
                         </div>
 
                         <div class="form-group">
-                            <input type="email" id="loginEmail" class="form-input" placeholder=" " required>
+                            <input type="email" id="loginEmail" name="email" class="form-input" placeholder=" "
+                                required>
                             <label for="loginEmail" class="form-label">E-mail</label>
                             <i data-feather="mail" class="input-icon"></i>
                         </div>
 
                         <div class="form-group">
-                            <input type="password" id="loginPassword" class="form-input" placeholder=" " required>
+                            <input type="password" id="loginPassword" name="senha" class="form-input" placeholder=" "
+                                required>
                             <label for="loginPassword" class="form-label">Senha</label>
                             <i data-feather="eye" class="input-icon password-toggle" data-target="loginPassword"></i>
                         </div>
@@ -149,7 +346,10 @@
                         </div>
 
                         <button type="submit" class="submit-btn">
-                            Entrar
+                            <span class="button-text">Entrar</span>
+                            <div class="loading-spinner hidden">
+                                <i data-feather="loader" class="w-5 h-5 animate-spin"></i>
+                            </div>
                         </button>
 
                         <div class="form-footer">
@@ -160,7 +360,8 @@
                         </div>
                     </form>
 
-                    <form id="registerForm" class="form">
+                    <!-- FORM-CADASTRO -->
+                    <form id="registerForm" class="form" action="backend/php/cadastro.php" method="POST">
                         <div>
                             <div class="text-center mb-4">
                                 <h3 class="text-2xl font-bold text-pink-700 dancing-font">Crie sua conta</h3>
@@ -168,27 +369,30 @@
                             </div>
 
                             <div class="form-group">
-                                <input type="text" id="registerName" class="form-input" placeholder=" " required>
+                                <input type="text" id="registerName" name="nome" class="form-input" placeholder=" "
+                                    required>
                                 <label for="registerName" class="form-label">Nome Completo</label>
                                 <i data-feather="user" class="input-icon"></i>
                             </div>
 
                             <div class="form-group">
-                                <input type="email" id="registerEmail" class="form-input" placeholder=" " required>
+                                <input type="email" id="registerEmail" name="email" class="form-input" placeholder=" "
+                                    required>
                                 <label for="registerEmail" class="form-label">E-mail</label>
                                 <i data-feather="mail" class="input-icon"></i>
                             </div>
 
                             <div class="form-group">
-                                <input type="password" id="registerPassword" class="form-input" placeholder=" "
-                                    required>
+                                <input type="password" id="registerPassword" name="senha" class="form-input"
+                                    placeholder=" " required>
                                 <label for="registerPassword" class="form-label">Senha</label>
                                 <i data-feather="eye" class="input-icon password-toggle"
                                     data-target="registerPassword"></i>
                             </div>
 
                             <div class="form-group">
-                                <input type="password" id="confirmPassword" class="form-input" placeholder=" " required>
+                                <input type="password" id="confirmPassword" name="confirmar_senha" class="form-input"
+                                    placeholder=" " required>
                                 <label for="confirmPassword" class="form-label">Confirmar Senha</label>
                                 <i data-feather="eye" class="input-icon password-toggle"
                                     data-target="confirmPassword"></i>
@@ -201,7 +405,10 @@
 
                         <div class="form-button-section">
                             <button type="submit" class="submit-btn">
-                                Criar Conta
+                                <span class="button-text">Criar Conta</span>
+                                <div class="loading-spinner hidden">
+                                    <i data-feather="loader" class="w-5 h-5 animate-spin"></i>
+                                </div>
                             </button>
 
                             <div class="form-footer">
@@ -217,7 +424,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -226,7 +432,6 @@
                         <i data-feather="star" class="w-6 h-6 text-pink-400"></i>
                         <h3 class="text-xl font-bold text-pink-300 dancing-font">Larissa Brito | Nail Designer</h3>
                     </div>
-
                     <p class="text-pink-200">Cada unha, uma história de confiança e beleza!</p>
                 </div>
                 <div>
@@ -242,11 +447,9 @@
                                 class="text-gray-400 hover:text-white transition duration-300">Login/Cadastro</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-lg font-bold mb-4">Contato</h4>
                     <ul class="space-y-2">
-
                         <li class="flex items-start">
                             <i data-feather="phone" class="w-4 h-4 mt-1 mr-2 text-pink-400"></i>
                             <a href="https://wa.me/5511960312904" target="_blank"
@@ -254,7 +457,6 @@
                                 WhatsApp (11) 96031-2904
                             </a>
                         </li>
-
                         <li class="flex items-start">
                             <i data-feather="instagram" class="w-4 h-4 mt-1 mr-2 text-pink-400"></i>
                             <a href="https://instagram.com/larissabrit_nails" target="_blank"
@@ -262,10 +464,8 @@
                                 @larissabrit_nails
                             </a>
                         </li>
-
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-lg font-bold mb-4">Endereço</h4>
                     <ul class="space-y-2">
@@ -274,8 +474,8 @@
                             <span class="text-gray-400">R. dos Brinquedos, 100 - Parque das Princesas, São Paulo -
                                 SP</span>
                         </li>
+                    </ul>
                 </div>
-
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; 2025 Larissa Brito | Nail Designer. Todos os direitos reservados.</p>

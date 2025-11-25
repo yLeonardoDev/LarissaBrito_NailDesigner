@@ -1,5 +1,4 @@
-// Funcionalidades para login/cadastro
-
+// login.js - VERSÃO CORRIGIDA E TESTADA
 document.addEventListener('DOMContentLoaded', function () {
     const formTabs = document.querySelectorAll('.form-tab');
     const forms = document.querySelectorAll('.form');
@@ -9,23 +8,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const registerPassword = document.getElementById('registerPassword');
     const confirmPassword = document.getElementById('confirmPassword');
     const passwordError = document.getElementById('passwordError');
+    const loginForm = document.getElementById('loginForm');
+   
+    const BASE_PATH = '/LarissaBrito';
+    const API_URLS = {
+        register: BASE_PATH + '/backend/php/cadastro.php',
+        login: BASE_PATH + '/backend/php/login.php'
+    };
 
     function switchForm(formType) {
-
         formTabs.forEach(tab => {
-            if (tab.dataset.tab === formType) {
-                tab.classList.add('active');
-            } else {
-                tab.classList.remove('active');
-            }
+            tab.classList.toggle('active', tab.dataset.tab === formType);
         });
 
         forms.forEach(form => {
-            if (form.id === formType + 'Form') {
-                form.classList.add('active');
-            } else {
-                form.classList.remove('active');
-            }
+            form.classList.toggle('active', form.id === formType + 'Form');
         });
     }
 
@@ -60,6 +57,119 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    function setButtonLoading(button, isLoading) {
+        const buttonText = button.querySelector('.button-text');
+        const loadingSpinner = button.querySelector('.loading-spinner');
+
+        if (isLoading) {
+            button.disabled = true;
+            if (buttonText) buttonText.style.display = 'none';
+            if (loadingSpinner) loadingSpinner.style.display = 'flex';
+        } else {
+            button.disabled = false;
+            if (buttonText) buttonText.style.display = 'block';
+            if (loadingSpinner) loadingSpinner.style.display = 'none';
+        }
+    }
+
+    function showAlert(message, type = 'success') {
+        const existingAlert = document.querySelector('.alert-message');
+        if (existingAlert) {
+            existingAlert.remove();
+        }
+
+        // Cria novo alerta
+        const alertDiv = document.createElement('div');
+        alertDiv.className = `alert-message alert-${type}`;
+        alertDiv.innerHTML = `
+            <i data-feather="${type === 'success' ? 'check-circle' : 'alert-circle'}" class="w-4 h-4 inline mr-2"></i>
+            ${message}
+        `;
+
+        const activeForm = document.querySelector('.form.active');
+        if (activeForm) {
+            activeForm.insertBefore(alertDiv, activeForm.firstChild);
+            feather.replace();
+        }
+
+        setTimeout(() => {
+            if (alertDiv.parentNode) {
+                alertDiv.remove();
+            }
+        }, 5000);
+    }
+
+    async function processRegister(formData) {
+        try {
+            console.log('📤 Enviando cadastro para:', API_URLS.register);
+            console.log('📝 Dados:', Object.fromEntries(formData));
+
+            const response = await fetch(API_URLS.register, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log('✅ Resposta cadastro:', result);
+
+            if (result.success) {
+                showAlert('✅ ' + result.message, 'success');
+                return true;
+            } else {
+                showAlert('❌ ' + result.message, 'error');
+                return false;
+            }
+
+        } catch (error) {
+            console.error('❌ Erro no cadastro:', error);
+            showAlert('❌ Erro: ' + error.message, 'error');
+            return false;
+        }
+    }
+
+    async function processLogin(formData) {
+        try {
+            console.log('📤 Enviando login para:', API_URLS.login);
+            console.log('📝 Dados:', Object.fromEntries(formData));
+
+            const response = await fetch(API_URLS.login, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const result = await response.json();
+            console.log('✅ Resposta login:', result);
+
+            if (result.success) {
+                showAlert('✅ ' + result.message, 'success');
+
+                if (result.user) {
+                    localStorage.setItem('userEmail', result.user.email);
+                    localStorage.setItem('userName', result.user.nome);
+                    localStorage.setItem('userId', result.user.id);
+                }
+
+                return true;
+            } else {
+                showAlert('❌ ' + result.message, 'error');
+                return false;
+            }
+
+        } catch (error) {
+            console.error('❌ Erro no login:', error);
+            showAlert('❌ Erro: ' + error.message, 'error');
+            return false;
+        }
+    }
+
     formTabs.forEach(tab => {
         tab.addEventListener('click', function () {
             switchForm(this.dataset.tab);
@@ -86,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (registerForm) {
-        registerForm.addEventListener('submit', function (e) {
+        registerForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             if (!validatePasswords()) {
@@ -98,43 +208,63 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
+            setButtonLoading(submitBtn, true);
 
-            submitBtn.textContent = 'Conta criada!';
-            submitBtn.classList.add('animate-success');
-            submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            const formData = new FormData(this);
+            const success = await processRegister(formData);
 
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.classList.remove('animate-success');
-                submitBtn.style.background = 'linear-gradient(135deg, #ec4899, #db2777)';
-                switchForm('login');
-            }, 2000);
+            if (success) {
+                this.reset();
+                setTimeout(() => {
+                    switchForm('login');
+                }, 2000);
+            }
+
+            setButtonLoading(submitBtn, false);
         });
     }
 
-    const loginForm = document.getElementById('loginForm');
     if (loginForm) {
-        loginForm.addEventListener('submit', function (e) {
+        loginForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
+            setButtonLoading(submitBtn, true);
 
-            submitBtn.textContent = 'Entrando...';
-            submitBtn.disabled = true;
+            const formData = new FormData(this);
+            const success = await processLogin(formData);
 
-            setTimeout(() => {
-                submitBtn.textContent = 'Login realizado!';
-                submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-
+            if (success) {
                 setTimeout(() => {
                     window.location.href = 'index.html';
-                }, 1000);
-            }, 1500);
+                }, 1500);
+            }
+
+            setButtonLoading(submitBtn, false);
         });
     }
 
-    // Inicialização
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .animate-shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        .loading-spinner {
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+    `;
+    document.head.appendChild(style);
     feather.replace();
 });
